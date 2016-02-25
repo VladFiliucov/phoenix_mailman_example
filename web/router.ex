@@ -15,7 +15,7 @@ defmodule PhoenixMailmanExample.Router do
 
   scope "/", PhoenixMailmanExample do
     pipe_through :browser # Use the default browser stack
-
+    resources "/jobs", JobController
     get "/", PageController, :index
   end
 

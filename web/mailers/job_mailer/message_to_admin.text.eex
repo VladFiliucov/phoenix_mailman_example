@@ -1,0 +1,4 @@
+Title: <%= @job.title %>
+Location: <%= @job.location %>
+
+<%= PhoenixMailmanExample.Router.Helpers.job_url(PhoenixMailmanExample.Endpoint, :show, @job) %>

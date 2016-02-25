@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :phoenix_mailman_example, PhoenixMailmanExample.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("LOGNAME"),
+  password: "",
   database: "phoenix_mailman_example_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
