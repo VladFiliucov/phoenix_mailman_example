@@ -16,9 +16,11 @@ defmodule PhoenixMailmanExample.JobControllerTest do
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
+    Mailman.TestServer.start
     conn = post conn, job_path(conn, :create), job: @valid_attrs
     assert redirected_to(conn) == job_path(conn, :index)
     assert Repo.get_by(Job, @valid_attrs)
+    assert Mailman.TestServer.deliveries |> length == 1
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
